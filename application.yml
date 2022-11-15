@@ -1,0 +1,14 @@
+server:
+  port: 20000
+application:
+  name: testing-platform
+datasource:
+  ip: 10.30.30.26
+  port: 23306
+  database: isc_dmc
+  username: isyscore
+  password: Isysc0re
+redis:
+  host: 47.111.94.101
+  port: 7379
+  database: 0
