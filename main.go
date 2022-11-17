@@ -59,7 +59,6 @@ func main() {
 	})
 	r.GET("/test2", func(c *gin.Context) {
 		c.Set("resp", basic.Success())
-		c.
 	})
 
 	r.Run() // listen and serve on 0.0.0.0:8080
