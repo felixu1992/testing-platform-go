@@ -70,12 +70,21 @@ func main() {
 		fmt.Println(info.Age)
 		c.JSON(200, string(d))
 	})
+	r.POST("/test4", interceptor.Wrap1(b))
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
 
 func a(c *gin.Context) (any, error) {
 	//return "傻逼",nil
 	return nil, exception.TestingPlatformError{ErrorInfo: exception.TEST}
+}
+
+func b(abc ...any) (any, error) {
+	return "傻逼", nil
+}
+
+type Abc struct {
+	Name string `json:"name"`
 }
 
 func Recover1(c *gin.Context) {
