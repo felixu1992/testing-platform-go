@@ -2,7 +2,6 @@ package exception
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
 )
 
 type TestingPlatformError struct {
@@ -12,5 +11,9 @@ type TestingPlatformError struct {
 }
 
 func PlatformError(errorInfo ErrorInfo, args ...any) error {
-	return errors.Wrap(TestingPlatformError{Args: args, ErrorInfo: errorInfo}, fmt.Sprintf(errorInfo.Message, args...))
+	err := &errorInfo
+	if args != nil && len(args) > 0 {
+		err.Message = fmt.Sprintf(err.Message, args...)
+	}
+	return TestingPlatformError{Args: args, ErrorInfo: *err}
 }
