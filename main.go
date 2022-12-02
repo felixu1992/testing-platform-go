@@ -79,7 +79,7 @@ func a(c *gin.Context) (any, error) {
 	return nil, exception.TestingPlatformError{ErrorInfo: exception.TEST}
 }
 
-func b(abc ...any) (any, error) {
+func b(a ...any) (any, error) {
 	return "傻逼", nil
 }
 
